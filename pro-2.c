@@ -1,12 +1,13 @@
 #include<stdio.h>
 main()
 {
-	int i,len,com=0,length,upr=0,lwr=0,num=0,spec=0;
+	int i,len,at=0,length,upr=0,lwr=0,num=0,spec=0;
 	
 	char pswd[10],mail[30],pass[10],email[30];
 	
 	printf("Enter your e-mail :");
 	gets(mail);
+	
 	
 	printf("Enter your password :");
 	gets(pswd);
@@ -16,9 +17,10 @@ main()
 	
 	for(i=0;i<=length;i++){
 		if(mail[i]>=97 && mail[i]<=122)lwr++;
-		if(mail[i]=='@')com++;
+		if(mail[i]=='@')at++;
 	}
-	if(lwr>0 && com==1 && mail[length-1]=='m' && mail[length - 2] == 'o' && mail[length - 3] == 'c' && mail[length - 4] == '.' && mail[length - 5] == 'l'){
+	if(lwr>0 && at==1 && strstr(mail, "gmail.com") != NULL)
+	{
 		printf("Your E-mail is correct.\n");
 	}
 	else{
@@ -41,17 +43,17 @@ main()
 	}
 	
 	
-	printf("Enter your e-mail for login to your account:\n");
+	printf("\nEnter your e-mail for login to your account:\n");
 	gets(email);
 	
 	printf("Enter your password for login to your account:\n");
 	gets(pass);
 	
-	if (strcmp(email, mail) == 0 && strcmp(pass, pswd) == 0) {
+	if (strcmp(email, mail) == 0 && strcmp(pass, pswd) == 0) 
+	{
         printf("You have logged in successfully.\n");
     }
     else {
         printf("There is something wrong...please check and correct your E-mail or password.\n");
     }
 }
-
